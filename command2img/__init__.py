@@ -1,16 +1,16 @@
-from sys import stdin, argv
-from .txt2img import Txt2img, FONT_FACE_MESLO
+from sys import stdin
 import argparse
+
+if __name__ == "__main__":
+    from txt2img import Txt2img, FONT_FACE_MESLO
+else:
+    from .txt2img import Txt2img, FONT_FACE_MESLO
 
 
 def main():
-    PROGRAM_NAME = argv[0]
     parser = argparse.ArgumentParser(
         description="Turns a text input into an image.",
-        epilog=f'example:\ttree | {PROGRAM_NAME}\n\t\tcat file.txt | {PROGRAM_NAME}\n\t\techo "Example echo" | {PROGRAM_NAME}',
-        usage=f"command | {PROGRAM_NAME} [-h] [--output [OUTPUT]] [--font_face [FONTFACE]] [--font_size [FONTSIZE]] [--font_encod [FONTENCOD]]\n\
-                             [--backgroud [BACKGROUD]] [--text_fill [TEXT_FILL]] [--margin [MARGIN]]",
-        formatter_class=argparse.RawTextHelpFormatter,
+        epilog='example: echo "Example echo" | command2img',
     )
 
     parser.add_argument(
@@ -56,15 +56,26 @@ def main():
     )
 
     parser.add_argument(
-        "--backgroud",
-        "-bg",
-        dest="backgroud",
+        "--backgroud-color",
+        "-bc",
+        dest="backgroud_color",
         action="store",
         default="white",
         nargs="?",
         help="Backgroud color.",
         type=str,
     )
+    parser.add_argument(
+        "--backgroud-transparency",
+        "-bt",
+        dest="backgroud_transparency",
+        action="store",
+        default=255,
+        nargs="?",
+        help="Backgroud transparency [0-255].",
+        type=int,
+    )
+    
     parser.add_argument(
         "--text_fill",
         "-tf",
@@ -107,15 +118,18 @@ def main():
             font_face=args.fontFace,
             font_size=args.fontSize,
             font_encoding=args.fontEncod,
-            backgroud=args.backgroud,
+            backgroud_color=args.backgroud_color,
+            backgroud_transparency=args.backgroud_transparency,
             text_fill=args.text_fill,
             margin=args.margin,
         )
 
         img.save(args.output)
         img.show()
-        print()
     else:
         parser.error(
             "It is necessary to receive an input through the pipe. example: tree | command2img."
         )
+
+if __name__ == "__main__":
+    main()

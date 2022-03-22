@@ -28,10 +28,14 @@ To install it, you can use the python package manager:
     exa --tree --icons | command2img
 ![tree image](https://raw.githubusercontent.com/emanuel-alves/command2img/main/images/tree.png)
 
+### using date:
+    date | command2img -bt 0 -tf white
+![echo image](https://raw.githubusercontent.com/emanuel-alves/command2img/main/images/date.png)
+
 ### using echo:
-    echo "Example echo" | command2img -fs 50 -m 15
-![echo image](https://raw.githubusercontent.com/emanuel-alves/command2img/main/images/echo.png)
+    echo -n "Example echo" | command2img -fs 50 -m 15 -ff ~/Inspiration-Regular.ttf
+![date image](https://raw.githubusercontent.com/emanuel-alves/command2img/main/images/echo.png)
 
 ### using cat:
-    cat README.md | command2img -bg "black" -tf "white" 
+    cat README.md | command2img -bc "black" -tf "white"
 ![cat image](https://raw.githubusercontent.com/emanuel-alves/command2img/main/images/cat.png)
