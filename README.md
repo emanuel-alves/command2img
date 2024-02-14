@@ -25,17 +25,17 @@ To install it, you can use the python package manager:
 ## Examples
 
 ### using exa (tree):
-    exa --tree --icons | command2img
+    exa --tree --icons | py -m command2img
 ![tree image](https://raw.githubusercontent.com/emanuel-alves/command2img/main/images/tree.png)
 
 ### using date:
-    date | command2img -bt 0 -tf white
+    date | py -m command2img -bt 0 -tf white
 ![echo image](https://raw.githubusercontent.com/emanuel-alves/command2img/main/images/date.png)
 
 ### using echo:
-    echo -n "Example echo" | command2img -fs 50 -m 15 -ff ~/Inspiration-Regular.ttf
+    echo -n "Example echo" | py -m command2img -fs 50 -m 15 -ff ~/Inspiration-Regular.ttf
 ![date image](https://raw.githubusercontent.com/emanuel-alves/command2img/main/images/echo.png)
 
 ### using cat:
-    cat README.md | command2img -bc "black" -tf "white"
+    cat README.md | py -m command2img -bc "black" -tf "white"
 ![cat image](https://raw.githubusercontent.com/emanuel-alves/command2img/main/images/cat.png)
