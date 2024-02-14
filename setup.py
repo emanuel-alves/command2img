@@ -8,7 +8,7 @@ with open("README.md") as f:
 
 setup(
     name="command2img",
-    version="0.2.1",
+    version="0.3.1",
     description="This is an simple program to convert a command line to image.",
     long_description=readme,
     long_description_content_type="text/markdown",
