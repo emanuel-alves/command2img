@@ -19,7 +19,7 @@ setup(
     packages=["command2img", join("command2img", "txt2img")],
     scripts=["bin/command2img"],
     include_package_data=True,
-    install_requires=["Pillow==9.5.0"],
+    install_requires=["Pillow==11.1.0"],
     zip_safe=False,
     classifiers=[
         "Intended Audience :: End Users/Desktop",
